@@ -11,7 +11,7 @@ const App = () => {
                 <Route path="/profile/*" element={<ProfileDashboard />} />
                 <Route path="/profile/personal-info" element={<PersonalInfoPage />} />
                 <Route path="/profile/history" element={<HistoryPage />} />
-                {/* Add additional routes here */}
+                
             </Routes>
         </Router>
     );
