@@ -1,0 +1,38 @@
+/* Navbar.css */
+
+nav {
+    background-color: #0e265a; /* Dark background for the navbar */
+    padding: 10px 20px; /* Padding for top/bottom and left/right */
+    position: fixed; /* Fix the navbar at the top */
+    top: 0; /* Position at the top of the page */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it is on top of other elements */
+
+  }
+  
+  ul {
+    list-style-type: none; /* Remove bullets from list items */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    display:inline-flex /* Align items horizontally */
+  }
+  
+  li {
+    margin-right: 50px; /* Space between each link */
+  }
+  
+  li:last-child {
+    margin-right: 0; /* Remove margin from the last item */
+  }
+  
+  a {
+    color: rgb(198, 255, 252); /* White text color */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 28px;
+    background-color: ; /* Font size for the links */
+  }
+  
+  a:hover {
+    color: #070505; /* Lighter color when hovered */
+  }
+  
