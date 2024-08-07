@@ -71,6 +71,20 @@ const events = [
     venue: 'Brooklyn Museum',
     poster: 'https://example.com/brooklyn_museum.jpg',
     name: 'Art Exhibition'
+  },
+  {
+    id: 11,
+    date: '2024-09-30',
+    venue: 'Rockefeller Center',
+    poster: 'https://example.com/rockefeller_center.jpg',
+    name: 'Fall Fashion Show'
+  },
+  {
+    id: 12,
+    date: '2024-10-05',
+    venue: 'Queens Botanical Garden',
+    poster: 'https://example.com/queens_botanical_garden.jpg',
+    name: 'Harvest Festival'
   }
 ];
 
@@ -90,6 +104,7 @@ const EventListing = () => {
 };
 
 export default EventListing;
+
 
 
 
