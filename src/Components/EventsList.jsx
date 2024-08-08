@@ -1,6 +1,6 @@
 // EventListing.jsx
 // import React from 'react';
-import './EventListing.css'; // Import custom CSS for additional styles
+// Import custom CSS for additional styles
 
 const events = [
   {

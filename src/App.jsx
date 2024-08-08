@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar'; // Adjust the path if needed
 import ProfileDashboard from './components/ProfileDashboard';
 import HistoryPage from './pages/HistoryPage';
