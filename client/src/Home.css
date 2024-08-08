@@ -1,0 +1,27 @@
+.Page-Navigation {
+  background-color: rgb(2, 2, 32);
+  height: 100px;
+}
+.home-banner {
+  background-color: rgb(2, 2, 32);
+  align-items: center;
+  display: flex;
+  flex-direction: column; /* Align children from top to bottom */
+  height: 40vh;
+}
+.home-banner h3 {
+  font-size: 40px; /* Adjusts the font size */
+  color: #ffffff; /* Changes the text color */
+}
+.home-banner h1 {
+  align-items: center;
+  margin-top: 40px;
+
+  font-size: 40px; /* Adjusts the font size */
+  color: #ffffff; /* Changes the text color */
+}
+.home-banner h2 {
+  margin-bottom: 10vh;
+  font-size: 40px; /* Adjusts the font size */
+  color: #ffffff; /* Changes the text color */
+}
