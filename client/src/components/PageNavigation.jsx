@@ -13,20 +13,18 @@ function PageNavigation() {
         <Container>
           <Nav className="me-auto">
             <Navbar.Brand href="/">Home</Navbar.Brand>
-            <Nav.Link href="/my_events">Events</Nav.Link>
+            <Nav.Link href="/events">Events</Nav.Link>
           </Nav>
+
+          <DropdownButton
+            as={ButtonGroup}
+            id="profile-dropdown"
+            variant="outline-warning"
+            title={<i className="bi bi-person-circle"></i>}
+          >
+            <Dropdown.Item eventKey="3">Login</Dropdown.Item>
+          </DropdownButton>
         </Container>
-        <DropdownButton
-          as={ButtonGroup}
-          id="profile-dropdown"
-          variant="secondary"
-          title="Profile"
-        >
-          {" "}
-          title="Profile"
-          <Dropdown.Item eventKey="1">Login</Dropdown.Item>
-          <Dropdown.Item eventKey="2">Signup</Dropdown.Item>
-        </DropdownButton>
       </Navbar>
     </div>
   );

@@ -36,6 +36,19 @@ function MyEvents() {
   return (
     <>
       <PageNavigation />
+      <p>
+        <h1
+          style={{
+            textAlign: "center",
+            fontFamily: "Arial Black",
+            marginTop: "3.5vh",
+            color: "brown",
+          }}
+        >
+          THE HOTTEST EVENTS
+        </h1>
+      </p>
+
       <Container>
         <Row>
           {events.map((event) => (

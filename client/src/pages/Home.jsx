@@ -1,11 +1,11 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+
 import PageNavigation from "../components/PageNavigation";
 import HomeBanner from "../components/HomeBanner";
-import MyEvents from "./Myevents";
+
 import React, { useState, useEffect } from "react";
 import { BASE_URL } from "./utils";
 import { Container } from "react-bootstrap";
@@ -46,6 +46,8 @@ function Home() {
       <h1
         style={{
           fontFamily: "sans-serif",
+          fontStyle: "italic",
+          color: "InactiveBorder",
           fontSize: "33px",
           marginTop: "20px",
           textAlign: "center",
