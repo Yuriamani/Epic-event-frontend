@@ -4,7 +4,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #d3d3d3; /* grey background outside the frame */
+    background-color: #c0baba; /* grey background outside the frame */
 }
 
 .form-container {
@@ -18,7 +18,7 @@ body {
 .form {
     --bg-light: #efefef;
     --bg-dark: #707070;
-    --clr: #58bc82;
+    --clr: #58bcab;
     --clr-alpha: #9c9c9c60;
     display: flex;
     flex-direction: column;

@@ -14,7 +14,7 @@ const HomePage = () => {
       <header className="header">
         <Navbar />
       </header>
-
+      <div className="event-header">
       <main className="main-content">
         <h2 className="tagline">One Stop</h2>
         <h1 className="title">EVENT PLANNER</h1>
@@ -24,22 +24,41 @@ const HomePage = () => {
           <button className="get-started-button" onClick={handleGetStartedClick}>
             Get Started
           </button>
-        </div>
+          </div>
       </main>
+      </div>
 
       <section className="events-section">
         <h2 className="section-title">Upcoming Events</h2>
         <div className="event-cards-container">
           <div className="event-card">
             <img
-              src="path/to/event-image.jpg"
-              alt="Event Name"
+              src="https://i.pinimg.com/564x/39/14/12/39141219c2f92a43a4a22a0e4993be4a.jpg"
+              alt="International Racing Flyer"
+              className="event-image"
+            />
+            <h3 className="event-name">International Racing Flyer</h3>
+           
+            <a href="/events" className="learn-more-link">Learn More</a>
+          </div>
+          <div className="event-card">
+            <img
+              src="https://i.pinimg.com/564x/39/14/12/39141219c2f92a43a4a22a0e4993be4a.jpg"
+              alt="Event Image"
               className="event-image"
             />
             <h3 className="event-name">Event Name</h3>
-            <p className="event-description">
-              Brief description of the event. Don’t miss out!
-            </p>
+            
+            <a href="/events" className="learn-more-link">Learn More</a>
+          </div>
+          <div className="event-card">
+            <img
+              src="https://i.pinimg.com/564x/39/14/12/39141219c2f92a43a4a22a0e4993be4a.jpg"
+              alt="Event Image"
+              className="event-image"
+            />
+            <h3 className="event-name">Event Name</h3>
+           
             <a href="/events" className="learn-more-link">Learn More</a>
           </div>
         </div>

@@ -1,9 +1,8 @@
-// import React from 'react';
 import { Box, Button, TextField, Typography } from '@mui/material';
 
 const PersonalInfoPage = () => {
     return (
-        <Box p={3}>
+        <Box p={3} sx={{ marginLeft: '300px' }}>
             <Typography variant="h4" gutterBottom>
                 Personal Information
             </Typography>

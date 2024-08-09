@@ -1,6 +1,8 @@
 // EventListing.jsx
 // import React from 'react';
 import './EventListing.css'; // Import custom CSS for additional styles
+import Navbar from "./Navbar"
+
 
 const events = [
   {
@@ -21,6 +23,7 @@ const events = [
   },
   // Add more events as needed
 ];
+
 
 const EventCard = ({ event }) => (
   <div className="card mb-4 shadow-sm">

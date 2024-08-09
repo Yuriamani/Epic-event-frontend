@@ -1,4 +1,3 @@
-// import React from 'react';
 import { Box, Typography, Grid, Paper } from '@mui/material';
 
 const HistoryPage = () => {
@@ -12,7 +11,7 @@ const HistoryPage = () => {
     ];
 
     return (
-        <Box p={3}>
+        <Box p={3} sx={{ marginLeft: '300px' }}>
             <Typography variant="h4" gutterBottom>
                 HISTORY
             </Typography>
