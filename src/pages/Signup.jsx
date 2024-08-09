@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './LoginsStyles.css';
 
 const Signup = () => {
@@ -6,6 +7,7 @@ const Signup = () => {
     const [email, setEmail] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [message, setMessage] = useState(''); // State to handle success/error messages
+    const navigate = useNavigate(); // Initialize navigate
 
     const handleSignup = async (event) => {
         event.preventDefault();
@@ -32,6 +34,7 @@ const Signup = () => {
 
             if (response.ok) {
                 setMessage('Account created successfully!'); // Set success message
+                navigate('/login'); // Redirect to login page upon successful signup
             } else {
                 throw new Error(responseData.error || 'Failed to create an account');
             }
@@ -82,7 +85,7 @@ const Signup = () => {
                 </div>
                 <button type="submit" className="submit">Create Account</button>
                 <div className="span">
-                    Already have an account? <a href="/">Log in</a>
+                    Already have an account? <a href="/login">Log in</a>
                 </div>
             </form>
         </div>
@@ -90,6 +93,7 @@ const Signup = () => {
 }
 
 export default Signup;
+
 
 
 
