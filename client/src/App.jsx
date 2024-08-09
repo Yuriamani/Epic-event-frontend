@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar'; // Adjust the path if needed
 import ProfileDashboard from './components/ProfileDashboard';
@@ -11,7 +10,12 @@ import EventListing from './components/EventsList';
 
 const App = () => {
   const location = useLocation();
-  const hideNavbar = location.pathname.startsWith('/profile');
+
+  // Define paths where the navbar should be hidden
+  const hideNavbar =
+    location.pathname === '/login' ||
+    location.pathname === '/signup' ||
+    location.pathname.startsWith('/profile');
 
   return (
     <div>

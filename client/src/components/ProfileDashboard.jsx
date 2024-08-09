@@ -8,11 +8,11 @@ import { Box } from '@mui/material';
 const ProfileDashboard = () => {
     return (
         <Box display="flex">
-            <Sidebar />
-            <Box flexGrow={1}>
+            <Sidebar /> {/* Sidebar will appear on all profile pages */}
+            <Box flexGrow={1} padding="20px"> {/* Content area on the right side */}
                 <Routes>
-                    <Route path="/profile/personal-info" element={<PersonalInfoPage />} />
-                    <Route path="/profile/history" element={<HistoryPage />} />
+                    <Route path="personal-info" element={<PersonalInfoPage />} />
+                    <Route path="history" element={<HistoryPage />} />
                 </Routes>
             </Box>
         </Box>
