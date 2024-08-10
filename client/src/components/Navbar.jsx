@@ -1,7 +1,7 @@
 import { AppBar, Toolbar, IconButton, Typography, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import './Navbar.css'; // Optional: for custom styling
+// import './Navbar.css'; // Optional: for custom styling
 
 function Navbar() {
   return (

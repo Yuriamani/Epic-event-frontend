@@ -6,7 +6,7 @@ import PersonalInfoPage from './pages/PersonalInfoPage';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import HomePage from './components/Home';
-import EventListing from './components/EventsList';
+
 
 const App = () => {
   const location = useLocation();
@@ -27,7 +27,7 @@ const App = () => {
         <Route path="/profile/*" element={<ProfileDashboard />} />
         <Route path="/profile/personal-info" element={<PersonalInfoPage />} />
         <Route path="/profile/history" element={<HistoryPage />} />
-        <Route path="/events" element={<EventListing />} />
+       
       </Routes>
     </div>
   );
