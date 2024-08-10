@@ -10,7 +10,7 @@ function MyEvents() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch(`${BASE_URL}/events`, {
+    fetch(`${BASE_URL}/events/events`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

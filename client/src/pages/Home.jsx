@@ -15,7 +15,7 @@ function Home() {
   const lastFourEvents = events.slice(-4);
 
   useEffect(() => {
-    fetch(`${BASE_URL}/events`, {
+    fetch(`${BASE_URL}/events/events`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import Home from "./src/pages/Home";
-import Events from "./src/pages/Events";
+import Home from "./pages/Home";
+import MyEvents from "./pages/Events";
 import { ImPacman } from "react-icons/im";
-import AboutUs from "./src/pages/AboutUs";
+import AboutUs from "./pages/AboutUs";
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
 
   {
     path: "/events",
-    element: <Events />,
+    element: <MyEvents />,
   },
   {
     path: "/about-us",
