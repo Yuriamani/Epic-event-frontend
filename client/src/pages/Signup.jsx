@@ -1,6 +1,6 @@
-import './LoginsStyles.css'
+import './LoginsStyles.css';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Signup = () => {
     const [username, setUsername] = useState('');
@@ -93,13 +93,14 @@ const Signup = () => {
                     </div>
                     <button className="submit" type="submit">Create Account</button>
                     <div className="span">
-                        Already have an account? <a href="/">Log in</a>
+                        Already have an account? <Link to="/login">Log in</Link>
                     </div>
                 </form>
             </div>
         </div>
-    )
+    );
 }
 
 export default Signup;
+
 
