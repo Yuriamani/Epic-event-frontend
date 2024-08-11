@@ -1,39 +1,33 @@
-.button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  
-  #buy {
-    padding: 1.2rem 6rem;
-    border: 0.065rem solid #000;
-    border-radius: 6px;
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: 600;
-    letter-spacing: 0.111rem;
-    transition: all 0.15s ease-in-out;
-    background-color: #000;
-    text-decoration: none;
-    text-align: center;
-  }
-  
-  #buy:hover {
-    cursor: pointer;
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
     background-color: #ff91e7;
     color: #000;
-    scale: 0.9;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeInOut 3s ease-in-out;
   }
   
-  #btn_back {
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    border-radius: 6px;
-    z-index: -1;
+  /* Fade in and out animation */
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    10%,
+    90% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
   }
   

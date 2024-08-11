@@ -5,10 +5,11 @@ import Col from "react-bootstrap/Col";
 import PageNavigation from "../components/PageNavigation";
 import Card from "react-bootstrap/Card";
 import { BASE_URL } from "./utils";
-import "./MyEvents.css"; // Import the CSS file
+import "./MyEvents.css"; // Ensure this file includes the updated CSS
 
 function MyEvents() {
   const [events, setEvents] = useState([]);
+  const [notification, setNotification] = useState(null); // State to manage notification
 
   useEffect(() => {
     fetch(`${BASE_URL}/events/events`, {
@@ -20,7 +21,12 @@ function MyEvents() {
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
-          setEvents(data);
+          // Add random price to each event
+          const updatedEvents = data.map((event) => ({
+            ...event,
+            price: generateRandomPrice(),
+          }));
+          setEvents(updatedEvents);
         } else {
           console.error("Unexpected data format:", data);
         }
@@ -30,9 +36,19 @@ function MyEvents() {
       });
   }, []);
 
-  if (events.length === 0) {
-    return <div>Loading...</div>;
-  }
+  const generateRandomPrice = () => {
+    // Generate a random price between $10 and $100
+    return (Math.random() * (100 - 10) + 10).toFixed(2);
+  };
+
+  const handleBuyClick = (event) => {
+    // Show the notification
+    setNotification(`You have selected ${event.name} for $${event.price}`);
+    // Hide the notification after 3 seconds
+    setTimeout(() => {
+      setNotification(null);
+    }, 3000);
+  };
 
   return (
     <>
@@ -59,6 +75,7 @@ function MyEvents() {
                   width: "280px",
                   marginTop: "10px",
                   objectFit: "cover",
+                  position: "relative", // Ensure positioning for button
                 }}
               >
                 <Card.Img
@@ -66,7 +83,7 @@ function MyEvents() {
                   src={event.image}
                   style={{ height: "370px", width: "280px" }}
                 />
-                <Card.Body style={{ height: "200px", position: "relative" }}>
+                <Card.Body style={{ height: "220px", position: "relative" }}>
                   <Card.Title>
                     <p>
                       <em>{event.name}</em>
@@ -80,19 +97,35 @@ function MyEvents() {
                     <i className="bi bi-geo-alt"> {event.location}</i>
                   </Card.Text>
 
+                  {/* Display the price */}
+                  <Card.Text>
+                    <strong>Price: ${event.price}</strong>
+                  </Card.Text>
+
                   {/* Add the Buy Tickets button here */}
-                  <a className="fancy" href="#">
-                    <span className="top-key"></span>
-                    <span className="text">Buy Tickets</span>
-                    <span className="bottom-key-1"></span>
-                    <span className="bottom-key-2"></span>
-                  </a>
+                  <div className="button">
+                    <a
+                      id="buy"
+                      href="#"
+                      onClick={() => handleBuyClick(event)}
+                    >
+                      Buy Tickets
+                    </a>
+                    <div id="btn_back"></div>
+                  </div>
                 </Card.Body>
               </Card>
             </Col>
           ))}
         </Row>
       </Container>
+
+      {/* Notification */}
+      {notification && (
+        <div className="notification">
+          <p>{notification}</p>
+        </div>
+      )}
     </>
   );
 }
