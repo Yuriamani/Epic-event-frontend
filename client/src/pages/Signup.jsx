@@ -1,36 +1,104 @@
 import './LoginsStyles.css'
-
+import { useState } from 'react';
 
 const Signup = () => {
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        // Basic validation
+        if (password !== confirmPassword) {
+            alert("Passwords do not match");
+            return;
+        }
+
+        const userData = {
+            username,
+            email,
+            password
+        };
+
+        try {
+            const response = await fetch('https://epic-event-backend.onrender.com/users/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            });
+
+            if (response.ok) {
+                alert('Account created successfully!');
+                // Redirect or clear form if needed
+            } else {
+                const errorData = await response.json();
+                alert(`Error: ${errorData.message || 'An error occurred'}`);
+            }
+        } catch (error) {
+            alert('Network error: ' + error.message);
+        }
+    };
+
     return (
         <div className="form-container">
             <div className="form">
                 <h2>Sign Up</h2>
-                <div className="name-fields">
-                    <div className="input-span">
-                        <label htmlFor="Username" className="label">Username</label>
-                        <input type="text" id="Username" name="Username" />
+                <form onSubmit={handleSubmit}>
+                    <div className="name-fields">
+                        <div className="input-span">
+                            <label htmlFor="Username" className="label">Username</label>
+                            <input
+                                type="text"
+                                id="Username"
+                                name="Username"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
+                        </div>
                     </div>
-                </div>
-                <div className="input-span">
-                    <label htmlFor="email" className="label">Email</label>
-                    <input type="email" id="email" name="email" />
-                </div>
-                <div className="input-span">
-                    <label htmlFor="password" className="label">Create Password</label>
-                    <input type="password" id="password" name="password" />
-                </div>
-                <div className="input-span">
-                    <label htmlFor="confirmPassword" className="label">Confirm Password</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" />
-                </div>
-                <button className="submit">Create Account</button>
-                <div className="span">
-                    Already have an account? <a href="/">Log in</a>
-                </div>
+                    <div className="input-span">
+                        <label htmlFor="email" className="label">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </div>
+                    <div className="input-span">
+                        <label htmlFor="password" className="label">Create Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+                    <div className="input-span">
+                        <label htmlFor="confirmPassword" className="label">Confirm Password</label>
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                        />
+                    </div>
+                    <button className="submit" type="submit">Create Account</button>
+                    <div className="span">
+                        Already have an account? <a href="/">Log in</a>
+                    </div>
+                </form>
             </div>
         </div>
     )
 }
 
-export default Signup
+export default Signup;
+
