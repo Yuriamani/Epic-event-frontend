@@ -1,7 +1,6 @@
 import "../Home.css";
 import Button from "react-bootstrap/Button";
-
-import Navbar from "react-bootstrap/Navbar";
+import { Link } from "react-router-dom";
 
 function HomeBanner() {
   return (
@@ -24,10 +23,14 @@ function HomeBanner() {
             size="lg"
             style={{ marginRight: "45vh" }}
           >
-            <Navbar.Brand href="/about-us"> About Us</Navbar.Brand>
+            <Link to="/about-us" style={{ textDecoration: 'none', color: 'inherit' }}>
+              About Us
+            </Link>
           </Button>
           <Button variant="outline-success" size="lg">
-            <Navbar.Brand href="/signup">Get Started</Navbar.Brand>
+            <Link to="/signup" style={{ textDecoration: 'none', color: 'inherit' }}>
+              Get Started
+            </Link>
           </Button>
         </div>
       </div>
@@ -36,3 +39,4 @@ function HomeBanner() {
 }
 
 export default HomeBanner;
+
