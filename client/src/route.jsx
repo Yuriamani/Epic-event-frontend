@@ -2,8 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 
 import Home from "./pages/Home";
 import MyEvents from "./pages/Events";
-import { ImPacman } from "react-icons/im";
 import AboutUs from "./pages/AboutUs";
+import Signup from "./pages/Signup"; // Ensure this path matches your project structure
 
 export const router = createBrowserRouter([
   {
@@ -14,7 +14,6 @@ export const router = createBrowserRouter([
       </div>
     ),
   },
-
   {
     path: "/events",
     element: <MyEvents />,
@@ -23,4 +22,9 @@ export const router = createBrowserRouter([
     path: "/about-us",
     element: <AboutUs />,
   },
+  {
+    path: "/signup",
+    element: <Signup />,
+  },
 ]);
+
