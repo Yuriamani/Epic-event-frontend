@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import PageNavigation from "../components/PageNavigation";
 import Card from "react-bootstrap/Card";
 import { BASE_URL } from "./utils";
+import "./MyEvents.css"; // Import the CSS file
 
 function MyEvents() {
   const [events, setEvents] = useState([]);
@@ -55,7 +56,6 @@ function MyEvents() {
             <Col key={event.id}>
               <Card
                 style={{
-                  // height: "370px",
                   width: "280px",
                   marginTop: "10px",
                   objectFit: "cover",
@@ -66,7 +66,7 @@ function MyEvents() {
                   src={event.image}
                   style={{ height: "370px", width: "280px" }}
                 />
-                <Card.Body style={{ height: "152px" }}>
+                <Card.Body style={{ height: "200px", position: "relative" }}>
                   <Card.Title>
                     <p>
                       <em>{event.name}</em>
@@ -74,11 +74,19 @@ function MyEvents() {
                   </Card.Title>
 
                   <Card.Text>
-                    <i class="bi bi-calendar3">{event.datetime}</i>
+                    <i className="bi bi-calendar3">{event.datetime}</i>
                   </Card.Text>
                   <Card.Text>
-                    <i class="bi bi-geo-alt"> {event.location}</i>
+                    <i className="bi bi-geo-alt"> {event.location}</i>
                   </Card.Text>
+
+                  {/* Add the Buy Tickets button here */}
+                  <a className="fancy" href="#">
+                    <span className="top-key"></span>
+                    <span className="text">Buy Tickets</span>
+                    <span className="bottom-key-1"></span>
+                    <span className="bottom-key-2"></span>
+                  </a>
                 </Card.Body>
               </Card>
             </Col>

@@ -1,0 +1,39 @@
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  #buy {
+    padding: 1.2rem 6rem;
+    border: 0.065rem solid #000;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.111rem;
+    transition: all 0.15s ease-in-out;
+    background-color: #000;
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  #buy:hover {
+    cursor: pointer;
+    background-color: #ff91e7;
+    color: #000;
+    scale: 0.9;
+  }
+  
+  #btn_back {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 6px;
+    z-index: -1;
+  }
+  
