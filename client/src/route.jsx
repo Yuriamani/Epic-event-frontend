@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import MyEvents from "./pages/Events";
 import AboutUs from "./pages/AboutUs";
-import Signup from "./pages/Signup"; // Ensure this path matches your project structure
+import Signup from "./pages/Signup";
 
 export const router = createBrowserRouter([
   {

@@ -1,16 +1,17 @@
 import './LoginsStyles.css'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Basic validation
         if (password !== confirmPassword) {
             alert("Passwords do not match");
             return;
@@ -33,7 +34,7 @@ const Signup = () => {
 
             if (response.ok) {
                 alert('Account created successfully!');
-                // Redirect or clear form if needed
+                navigate('/events');
             } else {
                 const errorData = await response.json();
                 alert(`Error: ${errorData.message || 'An error occurred'}`);
