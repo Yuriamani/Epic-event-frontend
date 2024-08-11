@@ -8,24 +8,13 @@ const Signup = () => {
                 <h2>Sign Up</h2>
                 <div className="name-fields">
                     <div className="input-span">
-                        <label htmlFor="firstName" className="label">First Name</label>
-                        <input type="text" id="firstName" name="firstName" />
-                    </div>
-                    <div className="input-span">
-                        <label htmlFor="lastName" className="label">Last Name</label>
-                        <input type="text" id="lastName" name="lastName" />
+                        <label htmlFor="Username" className="label">Username</label>
+                        <input type="text" id="Username" name="Username" />
                     </div>
                 </div>
                 <div className="input-span">
                     <label htmlFor="email" className="label">Email</label>
                     <input type="email" id="email" name="email" />
-                </div>
-                <div className="input-span">
-                    <label htmlFor="activity" className="label">Activity</label>
-                    <select id="activity" name="activity">
-                        <option value="post-event">Post Event</option>
-                        {/* Add other options as needed */}
-                    </select>
                 </div>
                 <div className="input-span">
                     <label htmlFor="password" className="label">Create Password</label>

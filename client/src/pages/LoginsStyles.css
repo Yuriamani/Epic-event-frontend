@@ -1,116 +1,96 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #d3d3d3; /* grey background outside the frame */
-}
-
+/* Container Styles */
 .form-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    height: 100vh;
+    background-color: #f7f9fc;
+    padding: 20px;
 }
 
 .form {
-    --bg-light: #efefef;
-    --bg-dark: #707070;
-    --clr: #58bc82;
-    --clr-alpha: #9c9c9c60;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px; /* increased width */
-    padding: 2rem;
-    background-color: white; /* frame background */
-    border-radius: 8px; /* rounded corners for the frame */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* subtle shadow for the frame */
+    max-width: 400px;
 }
 
+/* Header Styles */
 .form h2 {
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-    color: var(--bg-dark);
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
     text-align: center;
+    color: #333;
 }
 
-.form .input-span {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.form .name-fields {
-    display: flex;
-    gap: 2rem; /* Adjust this value to increase or decrease the spacing */
-    width: 100%;
-}
-
-.form .name-fields .input-span {
-    flex: 1;
-}
-
-.form input[type="email"],
-.form input[type="password"],
-.form input[type="text"],
-.form select {
-    border-radius: 0.5rem;
-    padding: 1rem 0.75rem;
-    width: 100%;
-    border: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: var(--clr-alpha);
-    outline: 2px solid var(--bg-dark);
-}
-
-.form input[type="email"]:focus,
-.form input[type="password"]:focus,
-.form input[type="text"]:focus,
-.form select:focus {
-    outline: 2px solid var(--clr);
-}
-
+/* Label and Input Styles */
 .label {
-    align-self: flex-start;
-    color: var(--clr);
+    display: block;
+    font-size: 14px;
     font-weight: 600;
+    margin-bottom: 5px;
+    color: #555;
 }
 
-.form .submit {
-    padding: 1rem 0.75rem;
+.input-span {
+    margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
     width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    border-radius: 3rem;
-    background-color: var(--bg-dark);
-    color: var(--bg-light);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    color: #333;
+    background-color: #f1f1f1;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Button Styles */
+.submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
-    transition: all 300ms;
-    font-weight: 600;
-    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
 }
 
-.form .submit:hover {
-    background-color: var(--clr);
-    color: var(--bg-dark);
+.submit:hover {
+    background-color: #0056b3;
 }
 
+/* Link Styles */
 .span {
-    text-decoration: none;
-    color: var(--bg-dark);
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
 }
 
 .span a {
-    color: var(--clr);
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.span a:hover {
+    color: #0056b3;
 }
