@@ -1,6 +1,5 @@
-
-import './LoginsStyles.css'
-
+// src/pages/Signup.jsx
+import './LoginsStyles.css'; // Ensure path is correct
 
 const Signup = () => {
     return (
@@ -38,11 +37,11 @@ const Signup = () => {
                 </div>
                 <button className="submit">Create Account</button>
                 <div className="span">
-                    Already have an account? <a href="/">Log in</a>
+                    Already have an account? <a href="/login">Log in</a>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Signup
+export default Signup;

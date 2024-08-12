@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -9,7 +10,7 @@ import "./MyEvents.css"; // Ensure this file includes the updated CSS
 
 function MyEvents() {
   const [events, setEvents] = useState([]);
-  const [notification, setNotification] = useState(null); // State to manage notification
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`${BASE_URL}/events/events`, {
@@ -42,13 +43,9 @@ function MyEvents() {
   };
 
   const handleBuyClick = (event) => {
-    // Show the notification
-    setNotification(`You have selected ${event.name} for $${event.price}`);
-    // Hide the notification after 3 seconds
-    setTimeout(() => {
-      setNotification(null);
-    }, 3000);
+    navigate("/purchased-event", { state: { event } });
   };
+  
 
   return (
     <>
@@ -119,13 +116,6 @@ function MyEvents() {
           ))}
         </Row>
       </Container>
-
-      {/* Notification */}
-      {notification && (
-        <div className="notification">
-          <p>{notification}</p>
-        </div>
-      )}
     </>
   );
 }

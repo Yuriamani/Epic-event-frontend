@@ -14,6 +14,7 @@ function PageNavigation() {
           <Nav className="me-auto">
             <Navbar.Brand href="/">Home</Navbar.Brand>
             <Nav.Link href="/events">Events</Nav.Link>
+            <Nav.Link href="/about-us">About Us</Nav.Link>
           </Nav>
 
           <DropdownButton
@@ -22,7 +23,8 @@ function PageNavigation() {
             variant="outline-warning"
             title={<i className="bi bi-person-circle"></i>}
           >
-            <Dropdown.Item eventKey="3">Login</Dropdown.Item>
+            <Dropdown.Item href="/login">Login</Dropdown.Item>
+            <Dropdown.Item href="/signup">Sign Up</Dropdown.Item>
           </DropdownButton>
         </Container>
       </Navbar>
