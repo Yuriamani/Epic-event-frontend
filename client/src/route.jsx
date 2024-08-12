@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import MyEvents from "./pages/Events";
 import { ImPacman } from "react-icons/im";
 import AboutUs from "./pages/AboutUs";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 
 export const router = createBrowserRouter([
   {
@@ -22,5 +24,13 @@ export const router = createBrowserRouter([
   {
     path: "/about-us",
     element: <AboutUs />,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);
