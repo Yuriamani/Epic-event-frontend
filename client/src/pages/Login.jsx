@@ -7,18 +7,19 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [successMessage, setSuccessMessage] = useState(''); // Added state for success message
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!username && !email || !password) {
-            setError('Please provide username or email, and password.');
+        if ((!username && !email) || !password) {
+            setError('Please provide a username or email, and password.');
             return;
         }
 
         try {
-            const response = await fetch('https://epic-event-backend.onrender.com/users/login', {
+            const response = await fetch('https://epic-event-backend.onrender.com/users/users/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -27,7 +28,10 @@ const Login = () => {
             });
 
             if (response.ok) {
-                navigate('/events');
+                setSuccessMessage('Login successful! Redirecting...');
+                setTimeout(() => {
+                    navigate('/events');
+                }, 2000); // Redirect after 2 seconds to display the success message
             } else if (response.status === 401) {
                 setError('Invalid username, email, or password. Please try again.');
             } else if (response.status === 404) {
@@ -78,6 +82,7 @@ const Login = () => {
                 </div>
                 <button type="submit" className="submit">Login</button>
                 {error && <div className="error-message">{error}</div>}
+                {successMessage && <div className="success-message">{successMessage}</div>}
                 <div className="span">
                     Don't have an account? <a href="/signup">Sign Up</a>
                 </div>
@@ -87,5 +92,7 @@ const Login = () => {
 };
 
 export default Login;
+
+
 
 

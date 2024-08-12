@@ -1,8 +1,6 @@
 /* LoginsStyles.css */
 
 body {
-    margin: 0;
-    padding: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     display: flex;
@@ -11,38 +9,14 @@ body {
     height: 100vh;
 }
 
-.form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
 .form {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 30px; /* Increased padding for more space */
-    width: 350px;  /* Increased width for a wider form */
-    max-width: 100%; /* Ensure responsiveness */
+    background-color: rgb(218, 214, 214);
+    border-radius: 35px;
+    padding: 30px;
+    width: 900px;
+    height: 800px;
     text-align: center;
-}
-
-h2 {
-    margin: 0 0 20px;
-    font-size: 24px;
-    color: #333;
-}
-
-.input-span {
-    margin-bottom: 15px;
-}
-
-.label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #555;
+    align-self: center;
 }
 
 input[type="email"],
@@ -56,19 +30,20 @@ input[type="text"] {
 }
 
 button.submit {
-    background-color: #007bff;
+    background: linear-gradient(to right, #4CAF50, #00BFFF); /* Light green to light blue gradient */
     color: #fff;
     border: none;
     padding: 10px 15px;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 50px;
+    transition: background 0.3s ease;
 }
 
 button.submit:hover {
-    background-color: #0056b3;
+    background: linear-gradient(to right, #45a049, #1e90ff); /* Darker gradient on hover */
 }
 
 .span {
@@ -79,9 +54,8 @@ button.submit:hover {
 
 .span a {
     color: #007bff;
-    text-decoration: none;
 }
 
-.span a:hover {
-    text-decoration: underline;
+.input-span {
+    margin-bottom: 20px;
 }

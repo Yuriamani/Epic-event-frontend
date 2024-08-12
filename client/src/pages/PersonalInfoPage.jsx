@@ -1,87 +1,45 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './PersonalInfoPage.css';
 
 const PersonalInfoPage = () => {
-    const [username, setUsername] = useState('');
-    const [newUsername, setNewUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [currentPassword, setCurrentPassword] = useState('');
-    const [newPassword, setNewPassword] = useState('');
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-
-        const userData = {
-            id: userId,
-            username: newUsername || username,
-            email,
-            password: newPassword
-        };
-
-        Object.keys(userData).forEach(key => userData[key] === '' && delete userData[key]);
-
-        try {
-            const response = await fetch('https://epic-event-backend.onrender.com/users/users', {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(userData),
-            });
-
-            if (response.ok) {
-                const result = await response.json();
-                console.log('Success:', result);
-            } else {
-                const errorText = await response.text();
-                console.error('Error:', response.statusText, errorText);
-            }
-        } catch (error) {
-            console.error('Fetch Error:', error);
-        }
-    };
-
     return (
-        <div>
+        <div className='personalInfo'>
             <h4>Personal Information</h4>
-            <div className="form-container">
-                <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+            <div className="profile-icon">
+                <img 
+                    src='https://t3.ftcdn.net/jpg/06/19/26/46/360_F_619264680_x2PBdGLF54sFe7kTBtAvZnPyXgvaRw0Y.jpg' 
+                    alt="Profile Icon" 
+                    className="profile-image"
+                />
+            </div>
+            <div className="fields" >
+                <form noValidate autoComplete="off">
                     <input
                         type="text"
                         placeholder="Username"
-                        className="input-field"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
+                        className="inputfield"
                     />
                     <input
                         type="text"
                         placeholder="New Username"
-                        className="input-field"
-                        value={newUsername}
-                        onChange={(e) => setNewUsername(e.target.value)}
+                        className="inputfield"
                     />
                     <input
                         type="email"
                         placeholder="Email"
-                        className="input-field"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        className="inputfield"
                     />
                     <input
                         type="password"
                         placeholder="Current Password"
-                        className="input-field"
-                        value={currentPassword}
-                        onChange={(e) => setCurrentPassword(e.target.value)}
+                        className="inputfield"
                     />
                     <input
                         type="password"
                         placeholder="New Password"
-                        className="input-field"
-                        value={newPassword}
-                        onChange={(e) => setNewPassword(e.target.value)}
+                        className="inputfield"
                     />
-                    <button type="submit" className="submit-button">
+                    <button type="submit" className="submit">
                         Save Changes
                     </button>
                 </form>
@@ -91,7 +49,6 @@ const PersonalInfoPage = () => {
 };
 
 export default PersonalInfoPage;
-
 
 
 
