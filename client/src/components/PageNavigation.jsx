@@ -1,12 +1,14 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
-import "../Home.css";
+import React from 'react';
+import { Navbar, Container, Nav, ButtonGroup, DropdownButton, Dropdown } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 function PageNavigation() {
+  const navigate = useNavigate();
+
+  const handleRedirect = () => {
+    navigate('/PersonalInfoPage');
+  };
+
   return (
     <div className="Page-Navigation">
       <Navbar bg="myBlueBackground" variant="dark">
@@ -22,7 +24,7 @@ function PageNavigation() {
             variant="outline-warning"
             title={<i className="bi bi-person-circle"></i>}
           >
-            <Dropdown.Item eventKey="3">Login</Dropdown.Item>
+            <Dropdown.Item onClick={handleRedirect}>Personal Info</Dropdown.Item>
           </DropdownButton>
         </Container>
       </Navbar>
@@ -31,3 +33,4 @@ function PageNavigation() {
 }
 
 export default PageNavigation;
+

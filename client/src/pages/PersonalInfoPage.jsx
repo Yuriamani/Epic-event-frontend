@@ -1,26 +1,28 @@
-// import React from 'react';
-import { Box, Button, TextField, Typography } from '@mui/material';
+import React from 'react';
+import './PersonalInfoPage.css';
 
 const PersonalInfoPage = () => {
     return (
-        <Box p={3}>
-            <Typography variant="h4" gutterBottom>
-                Personal Information
-            </Typography>
-            <form noValidate autoComplete="off">
-                <TextField fullWidth margin="normal" label="First Name" variant="outlined" />
-                <TextField fullWidth margin="normal" label="Last Name" variant="outlined" />
-                <TextField fullWidth margin="normal" label="Username" variant="outlined" />
-                <TextField fullWidth margin="normal" label="New Username" variant="outlined" />
-                <TextField fullWidth margin="normal" label="Email" variant="outlined" />
-                <TextField fullWidth margin="normal" label="Current Password" type="password" variant="outlined" />
-                <TextField fullWidth margin="normal" label="New Password" type="password" variant="outlined" />
-                <Button variant="contained" color="primary" style={{ marginTop: '20px' }}>
-                    Save Changes
-                </Button>
-            </form>
-        </Box>
+        <div>
+            <h4>Personal Information</h4>
+            <div className="form-container">
+                <form noValidate autoComplete="off">
+                    <input type="text" placeholder="First Name" className="input-field" />
+                    <input type="text" placeholder="Last Name" className="input-field" />
+                    <input type="text" placeholder="Username" className="input-field" />
+                    <input type="text" placeholder="New Username" className="input-field" />
+                    <input type="email" placeholder="Email" className="input-field" />
+                    <input type="password" placeholder="Current Password" className="input-field" />
+                    <input type="password" placeholder="New Password" className="input-field" />
+                    <button type="submit" className="submit-button">
+                        Save Changes
+                    </button>
+                </form>
+            </div>
+        </div>
     );
 };
 
 export default PersonalInfoPage;
+
+
