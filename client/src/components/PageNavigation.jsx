@@ -16,6 +16,7 @@ function PageNavigation() {
           <Nav className="me-auto">
             <Navbar.Brand href="/">Home</Navbar.Brand>
             <Nav.Link href="/events">Events</Nav.Link>
+            <Nav.Link href="/about-us">About Us</Nav.Link>
           </Nav>
 
           <DropdownButton

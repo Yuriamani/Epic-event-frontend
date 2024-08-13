@@ -2,18 +2,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
+import React from "react";
 import PageNavigation from "../components/PageNavigation";
 import HomeBanner from "../components/HomeBanner";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { BASE_URL } from "./utils";
 import { Container } from "react-bootstrap";
 
 function Home() {
   const [events, setEvents] = useState([]);
   const lastFourEvents = events.slice(-4);
-
+  const Home = () => <div>Home Page</div>;
   useEffect(() => {
     fetch(`${BASE_URL}/events/events`, {
       method: "GET",

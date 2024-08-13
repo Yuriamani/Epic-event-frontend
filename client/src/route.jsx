@@ -1,20 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
-
 import Home from "./pages/Home";
 import MyEvents from "./pages/Events";
 import AboutUs from "./pages/AboutUs";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login"
 import PersonalInfoPage from "./pages/PersonalInfoPage";
+import PurchasedEvent from "./components/PurchasedEvent";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <div>
-        <Home />
-      </div>
-    ),
+    element: <Home />,
   },
   {
     path: "/events",
@@ -23,6 +19,10 @@ export const router = createBrowserRouter([
   {
     path: "/about-us",
     element: <AboutUs />,
+  },
+  {
+    path: "/purchased-event",
+    element: <PurchasedEvent />,
   },
   {
     path: "/signup",

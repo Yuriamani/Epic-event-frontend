@@ -1,5 +1,6 @@
 import "../Home.css";
 import Button from "react-bootstrap/Button";
+import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 
 function HomeBanner() {
@@ -34,7 +35,7 @@ function HomeBanner() {
           </Button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
