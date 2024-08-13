@@ -1,0 +1,35 @@
+.personalInfo {
+    margin:  auto;
+    padding: 20px;
+    background-color: rgb(216, 214, 214);
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 1000px;
+    width: 1000px;
+}
+
+.inputfield {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 30px;
+}
+
+.submit {
+    background-color: #007bff;
+    color: white;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 2px;
+    transition: background-color 0.3s ease;
+}
+.profile-image {
+    width: 200px;
+    height: auto;
+    border-radius: 100px;
+    display: block;
+    margin: 0 auto;
+}

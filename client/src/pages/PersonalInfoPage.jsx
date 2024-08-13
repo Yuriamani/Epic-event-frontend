@@ -1,26 +1,54 @@
-// import React from 'react';
-import { Box, Button, TextField, Typography } from '@mui/material';
+import React from 'react';
+import './PersonalInfoPage.css';
 
 const PersonalInfoPage = () => {
     return (
-        <Box p={3}>
-            <Typography variant="h4" gutterBottom>
-                Personal Information
-            </Typography>
-            <form noValidate autoComplete="off">
-                <TextField fullWidth margin="normal" label="First Name" variant="outlined" />
-                <TextField fullWidth margin="normal" label="Last Name" variant="outlined" />
-                <TextField fullWidth margin="normal" label="Username" variant="outlined" />
-                <TextField fullWidth margin="normal" label="New Username" variant="outlined" />
-                <TextField fullWidth margin="normal" label="Email" variant="outlined" />
-                <TextField fullWidth margin="normal" label="Current Password" type="password" variant="outlined" />
-                <TextField fullWidth margin="normal" label="New Password" type="password" variant="outlined" />
-                <Button variant="contained" color="primary" style={{ marginTop: '20px' }}>
-                    Save Changes
-                </Button>
-            </form>
-        </Box>
+        <div className='personalInfo'>
+            <h4>Personal Information</h4>
+            <div className="profile-icon">
+                <img 
+                    src='https://t3.ftcdn.net/jpg/06/19/26/46/360_F_619264680_x2PBdGLF54sFe7kTBtAvZnPyXgvaRw0Y.jpg' 
+                    alt="Profile Icon" 
+                    className="profile-image"
+                />
+            </div>
+            <div className="fields" >
+                <form noValidate autoComplete="off">
+                    <input
+                        type="text"
+                        placeholder="Username"
+                        className="inputfield"
+                    />
+                    <input
+                        type="text"
+                        placeholder="New Username"
+                        className="inputfield"
+                    />
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        className="inputfield"
+                    />
+                    <input
+                        type="password"
+                        placeholder="Current Password"
+                        className="inputfield"
+                    />
+                    <input
+                        type="password"
+                        placeholder="New Password"
+                        className="inputfield"
+                    />
+                    <button type="submit" className="submit">
+                        Save Changes
+                    </button>
+                </form>
+            </div>
+        </div>
     );
 };
 
 export default PersonalInfoPage;
+
+
+
