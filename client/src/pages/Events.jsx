@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -96,14 +96,14 @@ function MyEvents() {
 
                   {/* Display the price */}
                   <Card.Text>
-                    <strong>Price: ${event.price}</strong>
+                    <strong>Price: KES {event.capacity}/=</strong>
                   </Card.Text>
 
                   {/* Add the Buy Tickets button here */}
                   <div className="button">
                     <a
                       id="buy"
-                      href="#"
+                      href=""
                       onClick={() => handleBuyClick(event)}
                     >
                       Buy Tickets
