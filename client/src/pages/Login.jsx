@@ -15,7 +15,7 @@ const Login = () => {
         setLoading(true);
 
         try {
-            const response = await fetch('https://epic-event-backend.onrender.com/users/users', {
+            const response = await fetch('https://epic-event-backend.onrender.com/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -47,6 +47,7 @@ const Login = () => {
         <div className="form">
             <h2>Login</h2>
             {error && <div className="error">{error}</div>}
+            <button><i className="bi bi-box-arrow-in-left " style={{color: "red"}}><a href="/">return</a></i></button>
             <form onSubmit={handleSubmit}>
                 <div className="input-span">
                     <label htmlFor="email" className="label">Email</label>

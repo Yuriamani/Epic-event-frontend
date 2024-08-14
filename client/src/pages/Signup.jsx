@@ -7,26 +7,30 @@ import './LoginsStyles.css'; // Ensure path is correct
 const Signup = () => {
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
+    const [password1, setPassword1] = useState("");
+    const [password2, setPassword2] = useState("");
+    const [role, setRole] = useState("");
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
     const navigate = useNavigate();
 
+    
+    
+
     const handleSubmit = async (event) => {
         event.preventDefault();
-        
-        // Validate passwords match
-        if (password !== confirmPassword) {
-            setError("Passwords do not match");
-            return;
-        }
-
+        console.log(email);
+        console.log(username);
+        console.log(password1);
+        console.log(password2);
+        console.log(role);
         try {
-            const response = await axios.post('https://epic-event-backend.onrender.com/users/users', {
+            const response = await axios.post('https://epic-event-backend.onrender.com/auth/signup', {
                 email,
                 username,
-                password
+                password1,
+                password2,
+                role
             });
 
             setSuccess("Account created successfully!");
@@ -61,6 +65,7 @@ const Signup = () => {
         <div className="form-container">
             <div className="form">
                 <h2>Sign Up</h2>
+                <button><i className="bi bi-box-arrow-in-left " style={{color: "red"}}><a href="/">return</a></i></button>
                 {error && <div className="alert alert-danger">{error}</div>}
                 {success && <div className="alert alert-success">{success}</div>}
                 <form onSubmit={handleSubmit}>
@@ -92,8 +97,8 @@ const Signup = () => {
                             type="password"
                             id="password"
                             name="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            value={password1}
+                            onChange={(e) => setPassword1(e.target.value)}
                             required
                         />
                     </div>
@@ -103,11 +108,16 @@ const Signup = () => {
                             type="password"
                             id="confirmPassword"
                             name="confirmPassword"
-                            value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            value={password2}
+                            onChange={(e) => setPassword2(e.target.value)}
                             required
                         />
                     </div>
+                    <label for="role">Select your role:</label>
+                    <select id="role" name="role" onChange={(e) => setRole(e.target.value)}>
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
                     <button type="submit" className="submit">Create Account</button>
                     <div className="span">
                         Already have an account? <a href="/login">Log in</a>
