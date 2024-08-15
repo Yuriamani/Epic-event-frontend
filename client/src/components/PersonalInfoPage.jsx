@@ -17,8 +17,12 @@ const PersonalInfoPage = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                // Fetch the user data from the backend using the user's ID
-                const response = await axios.get('https://epic-event-backend.onrender.com/users/users/'); // Replace '1' with the actual user ID from local storage or authentication
+                const userId = localStorage.getItem('userId'); // Retrieve user ID from local storage
+                if (!userId) {
+                    throw new Error('User ID not found in local storage');
+                }
+
+                const response = await axios.get(`https://epic-event-backend.onrender.com/users/users/${userId}`);
                 setUserData(response.data);
             } catch (error) {
                 console.error('Error fetching user data:', error);
@@ -30,6 +34,11 @@ const PersonalInfoPage = () => {
 
     const handleSaveChanges = async () => {
         try {
+            const userId = localStorage.getItem('userId'); // Retrieve user ID from local storage
+            if (!userId) {
+                throw new Error('User ID not found in local storage');
+            }
+
             // Send updated data to the backend
             const updatedData = {
                 username: newUsername || userData.username,
@@ -37,7 +46,7 @@ const PersonalInfoPage = () => {
                 password: newPassword || userData.password,
             };
 
-            await axios.put(`https://epic-event-backend.onrender.com/users/users`, updatedData); // Replace '1' with the actual user ID
+            await axios.put(`https://epic-event-backend.onrender.com/users/users/${userId}`, updatedData);
             alert('User information updated successfully!');
         } catch (error) {
             console.error('Error updating user data:', error);

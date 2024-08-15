@@ -29,7 +29,10 @@ const Login = () => {
             if (response.status === 200) {
                 const data = await response.json();
                 const user = { email: data.email, password };
+                
+                // Store the user data and user ID in local storage
                 localStorage.setItem('user', JSON.stringify(user));
+                localStorage.setItem('userId', data.user_id); // Store the user ID
 
                 // Show success message
                 setSuccess(true);
