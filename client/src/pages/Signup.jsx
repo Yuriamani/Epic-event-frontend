@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { GoogleLogin } from "@react-oauth/google";
-import './LoginsStyles.css'; // Ensure path is correct
+import './LoginsStyles.css';
 
 const Signup = () => {
     const [email, setEmail] = useState("");
@@ -14,16 +14,9 @@ const Signup = () => {
     const [success, setSuccess] = useState("");
     const navigate = useNavigate();
 
-    
-    
-
     const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(email);
-        console.log(username);
-        console.log(password1);
-        console.log(password2);
-        console.log(role);
+
         try {
             const response = await axios.post('https://epic-event-backend.onrender.com/auth/signup', {
                 email,
@@ -33,16 +26,19 @@ const Signup = () => {
                 role
             });
 
-            setSuccess("Account created successfully!");
-            setError("");
-            // Redirect to login page or other appropriate action
-            navigate("/login");
-        } catch (error) {
-            if (error.response && error.response.data && error.response.data.error) {
-                setError(error.response.data.error);
+            if (response.status === 200) {
+                setSuccess("Account created successfully!");
+                setError("");
+
+                const user = { email, username, password: password1 }; // Store the email, username, and password
+                localStorage.setItem('user', JSON.stringify(user)); // Save user to localStorage
+
+                navigate("/dashboard"); // Redirect to the dashboard page
             } else {
-                setError("An error occurred. Please try again.");
+                setError("Signup failed. Please try again.");
             }
+        } catch (error) {
+            setError("An error occurred. Please try again.");
             setSuccess("");
         }
     };
@@ -55,7 +51,7 @@ const Signup = () => {
             });
 
             // Handle response from backend after Google authentication
-            navigate("/login");
+            navigate("/dashboard");
         } catch (error) {
             setError("Failed to sign up with Google. Please try again.");
         }

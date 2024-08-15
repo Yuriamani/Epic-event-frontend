@@ -1,18 +1,21 @@
-import  { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { GoogleLogin } from '@react-oauth/google';
-import './LoginsStyles.css'; // Ensure path is correct
+import './LoginsStyles.css';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate(); // Initialize navigate
+    const [success, setSuccess] = useState(false); // State to manage success message
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
+        setError('');
+        setSuccess(false); // Reset success message on new submission
 
         try {
             const response = await fetch('https://epic-event-backend.onrender.com/auth/login', {
@@ -25,9 +28,16 @@ const Login = () => {
 
             if (response.status === 200) {
                 const data = await response.json();
-                const token = data.token; // Assume the token is returned in the response
-                localStorage.setItem('token', token); // Store the token
-                navigate('/profile'); // Redirect to the profile page
+                const user = { email: data.email, password };
+                localStorage.setItem('user', JSON.stringify(user));
+
+                // Show success message
+                setSuccess(true);
+
+                // Redirect to the dashboard after a short delay
+                setTimeout(() => {
+                    navigate('/dashboard/personal-info');
+                }, 2000); 
             } else {
                 setError('Invalid email or password');
             }
@@ -47,7 +57,12 @@ const Login = () => {
         <div className="form">
             <h2>Login</h2>
             {error && <div className="error">{error}</div>}
-            <button><i className="bi bi-box-arrow-in-left " style={{color: "red"}}><a href="/">return</a></i></button>
+            {success && <div className="success">Login successful! Redirecting...</div>} {/* Success message */}
+            <button>
+                <i className="bi bi-box-arrow-in-left" style={{ color: "red" }}>
+                    <a href="/">return</a>
+                </i>
+            </button>
             <form onSubmit={handleSubmit}>
                 <div className="input-span">
                     <label htmlFor="email" className="label">Email</label>

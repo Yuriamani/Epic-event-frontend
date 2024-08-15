@@ -1,22 +1,22 @@
-// import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import Sidebar from './Sidebar';
-import HistoryPage from '../pages/HistoryPage';
-import PersonalInfoPage from '../pages/PersonalInfoPage';
-import { Box } from '@mui/material';
+
+import { Routes, Route, Navigate } from 'react-router-dom';
+import PersonalInfoPage from './PersonalInfoPage';
+import HistoryPage from './HistoryPage';
+import AuthenticatedRoute from './AuthenticatedRoute'; // Import the AuthenticatedRoute component
 
 const ProfileDashboard = () => {
-    return (
-        <Box display="flex">
-            <Sidebar />
-            <Box flexGrow={1}>
-                <Routes>
-                    <Route path="/profile/personal-info" element={<PersonalInfoPage />} />
-                    <Route path="/profile/history" element={<HistoryPage />} />
-                </Routes>
-            </Box>
-        </Box>
-    );
+  return (
+    <AuthenticatedRoute>
+      <div>
+        <h2>Profile Dashboard</h2>
+        <Routes>
+          <Route path="/" element={<Navigate to="personal-info" replace />} />
+          <Route path="personal-info" element={<PersonalInfoPage />} />
+          <Route path="history" element={<HistoryPage />} />
+        </Routes>
+      </div>
+    </AuthenticatedRoute>
+  );
 };
 
 export default ProfileDashboard;

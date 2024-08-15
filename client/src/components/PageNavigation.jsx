@@ -8,12 +8,14 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
 import "../Home.css";
 
-function PageNavigation() {
-  // Example state for user authentication
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+function PageNavigation({ user }) {
+  const [isAuthenticated, setIsAuthenticated] = useState(!!user); // Initialize based on user prop
 
-  // You would typically determine authentication status from context, props, or a service
-  // Example: const { isAuthenticated } = useAuth(); // Assuming useAuth is a custom hook
+  const handleLogout = () => {
+    // Clear user authentication state
+    setIsAuthenticated(false);
+    window.location.href = '/login'; // Redirect to login page
+  };
 
   return (
     <div className="Page-Navigation">
@@ -26,13 +28,32 @@ function PageNavigation() {
           </Nav>
 
           {isAuthenticated ? (
-            <Button
-              variant="outline-warning"
-              onClick={() => window.location.href = '/profile'} // Redirect to profile page
-              className="profile-button"
-            >
-              <i className="bi bi-person-circle"></i>
-            </Button>
+            <>
+              <Button
+                variant="outline-warning"
+                className="profile-button"
+                onClick={() => window.location.href = '/profile'} // Redirect to profile page
+              >
+                <i className="bi bi-person-circle"></i> {user.username} ({user.email})
+              </Button>
+              <DropdownButton
+                as={ButtonGroup}
+                id="profile-options"
+                variant="outline-warning"
+                title="Options"
+              >
+                <Dropdown.Item href="/dashboard/host-events">Host Events</Dropdown.Item>
+                <Dropdown.Item href="/dashboard/participated-events">Participated Events</Dropdown.Item>
+                <Dropdown.Item href="/dashboard/personal-info">Personal Information</Dropdown.Item>
+              </DropdownButton>
+              <Button
+                variant="outline-danger"
+                onClick={handleLogout}
+                className="logout-button"
+              >
+                Logout
+              </Button>
+            </>
           ) : (
             <DropdownButton
               as={ButtonGroup}
