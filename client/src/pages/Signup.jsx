@@ -24,7 +24,7 @@ const Signup = () => {
         };
 
         try {
-            const response = await fetch('https://epic-event-backend.onrender.com/users/users', {
+            const response = await fetch('https://epic-event-backend.onrender.com/auth/users', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

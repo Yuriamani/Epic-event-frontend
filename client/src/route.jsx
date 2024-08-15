@@ -3,9 +3,10 @@ import Home from "./pages/Home";
 import MyEvents from "./pages/Events";
 import AboutUs from "./pages/AboutUs";
 import Signup from "./pages/Signup";
-import Login from "./pages/Login"
+import Login from "./pages/Login";
 import PersonalInfoPage from "./pages/PersonalInfoPage";
 import PurchasedEvent from "./components/PurchasedEvent";
+import ProtectedRoute from "./components/ProtectedRoute";  // Import the ProtectedRoute component
 
 export const router = createBrowserRouter([
   {
@@ -14,7 +15,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "/events",
-    element: <MyEvents />,
+    element: (
+      <ProtectedRoute>
+        <MyEvents />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/about-us",
@@ -22,19 +27,26 @@ export const router = createBrowserRouter([
   },
   {
     path: "/purchased-event",
-    element: <PurchasedEvent />,
+    element: (
+      <ProtectedRoute>
+        <PurchasedEvent />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/signup",
     element: <Signup />,
   },
   {
-    path: "/Login",
+    path: "/login",
     element: <Login />,
   },
   {
     path: "/PersonalInfoPage",
-    element: <PersonalInfoPage />,
+    element: (
+      <ProtectedRoute>
+        <PersonalInfoPage />
+      </ProtectedRoute>
+    ),
   },
 ]);
-

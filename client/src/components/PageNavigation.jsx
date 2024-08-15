@@ -4,9 +4,15 @@ import { useNavigate } from 'react-router-dom';
 
 function PageNavigation() {
   const navigate = useNavigate();
+  const token = localStorage.getItem('access_token'); // Check if token is present
 
-  const handleRedirect = () => {
-    navigate('/PersonalInfoPage');
+  const handleRedirect = (path) => {
+    navigate(path);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('access_token'); // Remove token from local storage
+    navigate('/login');
   };
 
   return (
@@ -25,7 +31,20 @@ function PageNavigation() {
             variant="outline-warning"
             title={<i className="bi bi-person-circle"></i>}
           >
-            <Dropdown.Item onClick={handleRedirect}>Personal Info</Dropdown.Item>
+            {token ? (
+              <>
+                <Dropdown.Item onClick={() => handleRedirect('/PersonalInfoPage')}>Personal Info</Dropdown.Item>
+                <Dropdown.Item onClick={() => handleRedirect('/ParticipatedEvents')}>Participated Events</Dropdown.Item>
+                <Dropdown.Item onClick={() => handleRedirect('/MyEvents')}>My Events</Dropdown.Item>
+                <Dropdown.Item onClick={() => handleRedirect('/HostEvents')}>Host Events</Dropdown.Item>
+                <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+              </>
+            ) : (
+              <>
+                <Dropdown.Item onClick={() => handleRedirect('/login')}>Login</Dropdown.Item>
+                <Dropdown.Item onClick={() => handleRedirect('/signup')}>Sign Up</Dropdown.Item>
+              </>
+            )}
           </DropdownButton>
         </Container>
       </Navbar>
@@ -34,4 +53,3 @@ function PageNavigation() {
 }
 
 export default PageNavigation;
-

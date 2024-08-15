@@ -7,7 +7,7 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [successMessage, setSuccessMessage] = useState(''); // Added state for success message
+    const [successMessage, setSuccessMessage] = useState('');
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -19,7 +19,7 @@ const Login = () => {
         }
 
         try {
-            const response = await fetch('https://epic-event-backend.onrender.com/users/users/login', {
+            const response = await fetch('https://epic-event-backend.onrender.com/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -28,10 +28,18 @@ const Login = () => {
             });
 
             if (response.ok) {
+                const data = await response.json();
+                const { access_token } = data;
+
+                // Store the token in local storage
+                localStorage.setItem('access_token', access_token);
+
                 setSuccessMessage('Login successful! Redirecting...');
+                
+                // Redirect to the events page after a short delay
                 setTimeout(() => {
                     navigate('/events');
-                }, 2000); // Redirect after 2 seconds to display the success message
+                }, 2000);
             } else if (response.status === 401) {
                 setError('Invalid username, email, or password. Please try again.');
             } else if (response.status === 404) {
@@ -92,4 +100,3 @@ const Login = () => {
 };
 
 export default Login;
-
