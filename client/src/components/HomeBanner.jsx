@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function HomeBanner() {
   return (
-    <>
+    <div>
       <div className="home-banner">
         <div>
           <h3>One Stop</h3>

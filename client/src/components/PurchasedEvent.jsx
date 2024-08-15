@@ -45,7 +45,7 @@ function PurchasedEvent() {
                     <i className="bi bi-geo-alt"> {event.location}</i>
                   </Card.Text>
                   <Card.Text>
-                    <strong>Price: KES{event.price}</strong>
+                    <strong>Price: KES{event.capacity}</strong>
                   </Card.Text>
                   <button className="btn" onClick={handleBuyNow}>
                     <span className="btn__visible">Buy Now</span>
