@@ -1,22 +1,24 @@
 /* LoginsStyles.css */
 
-/* body {
+body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-} */
+    margin: 0; /* Remove default margin */
+}
 
 .form {
     background-color: rgb(218, 214, 214);
     border-radius: 35px;
     padding: 30px;
-    width: 900px;
-    height: 800px;
+    width: 90%; /* Adjusted width for responsiveness */
+    max-width: 900px; /* Ensure the form doesn’t exceed this width */
+    height: auto; /* Adjust height to auto for better responsiveness */
     text-align: center;
-    align-self: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
 }
 
 input[type="email"],
