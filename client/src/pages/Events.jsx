@@ -22,10 +22,10 @@ function MyEvents() {
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
-          // Add random price to each event
+          // Add fixed price to each event in KES
           const updatedEvents = data.map((event) => ({
             ...event,
-            price: generateRandomPrice(),
+            price: generateFixedPrice(),
           }));
           setEvents(updatedEvents);
         } else {
@@ -37,15 +37,14 @@ function MyEvents() {
       });
   }, []);
 
-  const generateRandomPrice = () => {
-    // Generate a random price between $10 and $100
-    return (Math.random() * (100 - 10) + 10).toFixed(2);
+  const generateFixedPrice = () => {
+    // Return a fixed price, e.g., 1500 KES
+    return 1500;
   };
 
   const handleBuyClick = (event) => {
     navigate("/purchased-event", { state: { event } });
   };
-  
 
   return (
     <>
@@ -94,16 +93,16 @@ function MyEvents() {
                     <i className="bi bi-geo-alt"> {event.location}</i>
                   </Card.Text>
 
-                  {/* Display the price */}
+                  {/* Display the price in KES */}
                   <Card.Text>
-                    <strong>Price: ${event.price}</strong>
+                    <strong>Price: KES {event.price}</strong>
                   </Card.Text>
 
                   {/* Add the Buy Tickets button here */}
                   <div className="button">
                     <a
                       id="buy"
-                      href="#"
+                      href=""
                       onClick={() => handleBuyClick(event)}
                     >
                       Buy Tickets
