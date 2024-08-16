@@ -1,9 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
 import PageNavigation from "./PageNavigation";
 import MpesaForm from "./MpesaForm";
 import "./PurchasedEvent.css";
@@ -25,7 +25,10 @@ function PurchasedEvent() {
     <>
       <PageNavigation />
       {showMpesaForm ? (
-        <MpesaForm />
+        <MpesaForm
+          eventName={event.name}
+          eventPrice={event.capacity}  // Adjust if you use a different property for price
+        />
       ) : (
         <Container>
           <Row className="justify-content-center">

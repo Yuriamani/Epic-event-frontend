@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import MyEvents from "./pages/Events";
 import Login from "./pages/Login";
@@ -8,8 +8,6 @@ import ProfileDashboard from "./components/ProfileDashboard";
 import HistoryPage from "./pages/HistoryPage";
 import PersonalInfoPage from "./pages/PersonalInfoPage";
 import PurchasedEvent from "./components/PurchasedEvent";
-import { RouterProvider } from 'react-router-dom';
-import { router } from './route';
 
 const NotFound = () => <h1>404 - Page Not Found</h1>;
 
@@ -51,8 +49,6 @@ const App = () => {
             path="/purchased-event" 
             element={<ProtectedRoute><PurchasedEvent /></ProtectedRoute>} 
           />
-
-          <RouterProvider router={router} />
 
           {/* Catch-all route for 404 errors */}
           <Route path="*" element={<NotFound />} />
