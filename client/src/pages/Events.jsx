@@ -22,12 +22,7 @@ function MyEvents() {
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
-          // Add fixed price to each event in KES
-          const updatedEvents = data.map((event) => ({
-            ...event,
-            price: generateFixedPrice(),
-          }));
-          setEvents(updatedEvents);
+          setEvents(data);
         } else {
           console.error("Unexpected data format:", data);
         }
@@ -36,11 +31,6 @@ function MyEvents() {
         console.error("Failed to load events:", err);
       });
   }, []);
-
-  const generateFixedPrice = () => {
-    // Return a fixed price, e.g., 1500 KES
-    return 1500;
-  };
 
   const handleBuyClick = (event) => {
     navigate("/purchased-event", { state: { event } });
@@ -93,17 +83,22 @@ function MyEvents() {
                     <i className="bi bi-geo-alt"> {event.location}</i>
                   </Card.Text>
 
-                  {/* Display the price in KES */}
-                  <Card.Text>
-                    <strong>Price: KES {event.price}</strong>
-                  </Card.Text>
+                  {/* Display the price if available */}
+                  {event.price && (
+                    <Card.Text>
+                      <strong>Price: KES {event.price}</strong>
+                    </Card.Text>
+                  )}
 
                   {/* Add the Buy Tickets button here */}
                   <div className="button">
                     <a
                       id="buy"
                       href=""
-                      onClick={() => handleBuyClick(event)}
+                      onClick={(e) => {
+                        e.preventDefault(); // Prevent default anchor behavior
+                        handleBuyClick(event);
+                      }}
                     >
                       Buy Tickets
                     </a>

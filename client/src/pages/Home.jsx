@@ -2,18 +2,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PageNavigation from "../components/PageNavigation";
 import HomeBanner from "../components/HomeBanner";
-
-import { useState, useEffect } from "react";
-import { BASE_URL } from "./utils";
 import { Container } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "./utils";
 
 function Home() {
   const [events, setEvents] = useState([]);
-  const lastFourEvents = events.slice(-4);
-  const Home = () => <div>Home Page</div>;
+  const navigate = useNavigate(); // Initialize useNavigate
+  const lastThreeEvents = events.slice(-3); // Slice the last 3 events
+
   useEffect(() => {
     fetch(`${BASE_URL}/events/events`, {
       method: "GET",
@@ -38,6 +38,10 @@ function Home() {
     return <div>Loading...</div>;
   }
 
+  const handleCardClick = (event) => {
+    navigate("/purchased-event", { state: { event } }); // Pass the whole event object
+  };
+
   return (
     <>
       <PageNavigation />
@@ -57,15 +61,16 @@ function Home() {
       </h1>
       <Container>
         <Row>
-          {lastFourEvents.map((event) => (
+          {lastThreeEvents.map((event) => (
             <Col key={event.id}>
               <Card
                 style={{
-                  // height: "370px",
+                  cursor: "pointer", // Makes the card look clickable
                   width: "280px",
                   marginTop: "10px",
                   objectFit: "cover",
                 }}
+                onClick={() => handleCardClick(event)} // Pass the whole event object
               >
                 <Card.Img
                   variant="top"
